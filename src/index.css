@@ -11,3 +11,13 @@ button:hover {
 li {
   list-style: none;
 }
+
+a{
+  text-decoration: none;
+  color: blue;
+}
+
+a:hover {
+  color: rgb(13, 13, 233);
+}
+

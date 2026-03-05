@@ -1,39 +1,51 @@
 import { useOutletContext } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query"
-import { fetchAllProducts, searchProducts } from "../store/util"
+import { useMutation } from "@tanstack/react-query";
+import { addToCart } from "../store/util"
 import { Truncate } from "../components/Truncating";
-import { formattedCurrency } from "../store/util";
+import { formattedCurrency } from "../store/formattedCurrency";
+import { useNavigate } from "react-router-dom";
+import Loading from "../components/Loading";
 import "../pages/HomePage.css";
 
 
 export default function HomePage() {
-  const  search = useOutletContext();
+  const navigate = useNavigate();
+  const  { products, isLoading, isQueryError, queryError} = useOutletContext();
 
-  const { data: products, isLoading, isError, error, isFetching} = useQuery({
-    queryKey: ["products", search],
-    queryFn: ()=>( search ? searchProducts(search) : fetchAllProducts())
-  });
+// ADD TO CART
+  const { mutate, isPending } = useMutation({
+    mutationFn: addToCart,
+    onSuccess: (res)=> {
+      console.log(res.data?.message)
+    },
+    onError: (err)=> {
+      if (err.response?.status === 401) {
+        navigate("/login")
+        return;
+      }
+      console.log(err.response?.data?.message)
+    }
+  })
+
 
   if (isLoading) {
-    return <p>Loading...</p>
+    return <Loading/>
   }
 
-  if (isFetching) {
-    return <p>Fetching...</p>
-  }
-
-  if (isError) {
-    return <p>Error: {error.data?.message}</p>
+  if (isQueryError) {
+    return <p>Error: {queryError.data?.message}</p>
   };  
 
-  console.log(products)
+  const handleAddToCart = (data)=> {
+    mutate(data)
+  }
 
 
   return (
     <>
       <div className="products-container">
         <ul>
-          {products.map((product)=> <li key={product._id}>
+          {products?.map((product)=> <li key={product._id}>
             <div className="image-container">
               <img src={product.images} alt={product.title}/>
             </div>
@@ -47,11 +59,12 @@ export default function HomePage() {
 
             <div className="prod-price-quanty">
               <span className="prod-price">{formattedCurrency.format(product.price)}</span>
-              <span>Qty: {product.quantity}</span>
+              <span>Stock: {product.quantity}</span>
             </div>
 
             <div className="add-to-cart">
-              <button className="">Add to Cart</button>
+              <button onClick={()=> handleAddToCart(
+                product._id)} >{isPending ? "Adding..." : "Add to Cart"}</button>
             </div>
           </li>)}
         </ul>

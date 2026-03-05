@@ -1,0 +1,17 @@
+
+@keyframes fadeIn {
+  to {
+    opacity: 0;
+  }
+}
+
+dialog {
+  transform: translateY(-50px);
+  animation: slideDown 0.6s forwards;
+}
+
+@keyframes slideDown {
+  to {
+    transform: translateY(0);
+  }
+}

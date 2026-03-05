@@ -1,0 +1,210 @@
+/* ===== NAVBAR MAIN ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background-color: wheat;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 1000;
+}
+
+/* ===== LOGO ===== */
+.sky-navbar {
+  width: 60%;
+}
+
+#sky-kiddies {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+/* ===== SEARCH BAR ===== */
+.search-bar {
+  width: 60%;
+}
+
+.search-input {
+  flex: 1;
+  height: 38px;
+  padding: 0 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 95%;
+}
+
+/* ===== NAV LINKS ===== */
+.navbar-list-container {
+  width: 70%;
+}
+.navbar-list {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 40px;
+  list-style: none;
+  margin-right: 10px;
+  padding: 0px;
+  width: 100%;
+}
+
+.navbar-list a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.navbar-list a:hover {
+  color: #3c3b3b;
+  transform: scale(0.9);
+}
+
+/* ===== ACCOUNT DROPDOWN ===== */
+.account-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+.account-dropdown:hover {
+  color: #3c3b3b;
+  transform: scale(0.9);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 120px;
+  z-index: 2000;
+}
+
+.dropdown-menu button,
+.dropdown-menu a {
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 14px;
+  color: black;
+}
+
+.dropdown-menu button:hover,
+.dropdown-menu a:hover {
+  background: #f2f2f2;
+  border-radius: 4px;
+}
+
+/* ===== ICON SIZES ===== */
+#fa-home,
+#fa-user,
+#fa-help,
+#fa-shoppingcart {
+  font-size: 18px;
+}
+
+/* ========================= */
+/* ===== RESPONSIVE ======== */
+/* ========================= */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .sky-navbar {
+    width: 35%;
+  }
+
+  .navbar-list-container {
+    width: 45%;
+  }
+
+  .navbar-list {
+    gap: 15px;
+    justify-content: space-between;
+    width: 90%;
+    /* margin: auto; */
+    margin: auto;
+    padding: 10px 0px;
+  }
+
+  .search-bar {
+    flex: 1.5;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px 20px;
+    gap: 10px;
+  }
+
+  .sky-navbar {
+    flex: 100%;
+    text-align: center;
+  }
+
+  .search-bar {
+    flex: 100%;
+    order: 3;
+  }
+
+  .navbar-list-container {
+    width: 100%;
+  }
+
+  .navbar-list {
+    flex: 100%;
+    justify-content: space-around;
+    order: 2;
+  }
+
+  #sky-kiddies {
+    font-size: 22px;
+    display: none;
+  }
+}
+
+/* Small Phones */
+@media (max-width: 480px) {
+  .navbar-list span {
+    display: none; /* hide text, show only icons */
+  }
+
+  .navbar-list a {
+    font-size: 18px;
+  }
+
+  .search-input {
+    height: 34px;
+  }
+
+  #sky-kiddies{
+    display: none;
+  }
+
+}

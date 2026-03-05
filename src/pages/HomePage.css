@@ -1,12 +1,12 @@
-.products-container {
-  margin-top: 115px;
 
-}
 
 .products-container ul {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 2px;
 }
 
 .image-container img {
