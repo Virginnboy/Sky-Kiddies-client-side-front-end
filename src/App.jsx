@@ -13,6 +13,8 @@ import CartPage from "./pages/CartPage";
 import ProtectedRoutes from "./auth/ProtectedRoute";
 import Checkout from "./pages/Checkout";
 import AuthRedirect from "./auth/AuthRedirect";
+import ProductDetails, {loader as productDetailsLoader } from "./components/ProductDetails";
+import Orders from "./pages/Orders";
 
 function App() {
   const queryClient = new QueryClient();
@@ -23,19 +25,22 @@ function App() {
       errorElement: <ErrorPage/>,
       children: [
       {index: true, element: <AuthRedirect/>},
+      {path: "/product-details/:productId", element: <ProductDetails/>, loader:productDetailsLoader},
       {path: "signup", element: <Signup/>, action: signupAction},
       {path: "login", element: <Login/>, action: loginAction},
       {path: "forgot-password", element: <ForgotPassword/>},
-      {path: "reset-password", element: <ResetPassword/>},
+      {path: "reset-password/:token", element: <ResetPassword/>},
       {path: "dashboard", element: <ProtectedRoutes>
         <DashboardLayout/>
       </ProtectedRoutes>, children: [
         {index: true, element: <Products/>},
+        {path: "product-details/:productId", element: <ProductDetails/>, loader: productDetailsLoader},
         {path: "cart", element: <CartPage/>},
-        {path: "checkout", element: <Checkout/> }
+        {path: "checkout", element: <Checkout/> },
+        {path: "orders", element: <Orders/>}
       ]},
     ]}
-  ])
+  ]);
 
   return (
     <QueryClientProvider client={queryClient}>

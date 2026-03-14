@@ -11,14 +11,24 @@ export const fetchAllProducts = async () => {
 };
 
 export const searchProducts = async (search)=> {
-  const response = await api.get(`user/products?searc=${search}`);
+  try {
+    const response = await api.get(`user/products?searc=${search}`);
+    return response.data
+  }catch(err) {
+    console.log(err)
+    throw err
+  }
 
-  return response.data
 };
 
   export const addToCart = async({productId}) => {
-    const response = await api.post("cart/add", {productId});
-    return response.data
+    try{
+      const response = await api.post("cart/add", {productId});
+      return response.data
+    }catch (err) {
+      console.log(err)
+      throw err
+    }
   };
 
   export const fetchCart = async ()=> {
@@ -58,6 +68,17 @@ export const searchProducts = async (search)=> {
     return response.data
 
   } catch(err) {
+    console.log(err)
+    throw err
+  }
+}
+
+export const placeOrder = async(formData)=> {
+  try {
+    const response = await api.post("user/place-order", formData);
+
+    return response.data
+  }catch(err) {
     console.log(err)
     throw err
   }

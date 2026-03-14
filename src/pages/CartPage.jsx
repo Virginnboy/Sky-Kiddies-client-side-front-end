@@ -8,7 +8,8 @@ import Loading from "../components/Loading";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import Modal from "../components/Modal"
-import CartSummary from "./CartSummary";
+import { FaShoppingCart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const CartPage = () => {
   const navigate = useNavigate();
@@ -48,22 +49,25 @@ const CartPage = () => {
     return <Loading/>
   }
 
-  if (cart?.items?.length === 0) {
-    return (
-      <p>No items in the Cart</p>
-    )
-  }
+if (cart?.items?.length === 0) {
+  return (
+    <div className="empty-cart">
+      <FaShoppingCart className="empty-cart-icon" />
+      <b>Your Cart is Empty</b>
+      <p>Browse our categories and discover our best deals!</p>
+
+      <Link to="/dashboard" className="start-shopping-btn">
+        Start Shopping
+      </Link>
+    </div>
+  )
+}
 
 // REMOVE ITEM BUTTON FUNCTION
   const handleRemoveItem =(id)=> {
     setShowModal(false)
     mutate(id)
   }
-
-  const cartSummary = cart?.items?.reduce((total, item)=> {
-    return total + item.quantity * item.product.price
-  },0)
-
 
   return (
     <div className="cart-container">
@@ -81,7 +85,7 @@ const CartPage = () => {
         {cart?.items?.map((item)=> 
         <li key={item._id} className="cart-list">
           <div className="cart-image-container">
-            <img src={item.product.images} alt={item.product.title}  className="cart-image"/>
+            <img src={item.product.images[0]} alt={item.product.title}  className="cart-image"/>
           </div>
 
           <div className="cart">

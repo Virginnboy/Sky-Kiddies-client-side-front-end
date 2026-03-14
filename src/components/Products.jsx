@@ -4,6 +4,7 @@ import { Truncate } from "./Truncating";
 import { formattedCurrency } from "../store/formattedCurrency";
 import { addToCart } from "../store/util";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import "../components/Product.css";
 import Loading from "./Loading";
@@ -20,7 +21,6 @@ const Products = () => {
   const { mutate } = useMutation({
     mutationFn: addToCart,
     onMutate: (variables)=> {
-      console.log(variables)
       setAddingProduct(variables.productId)
     },
     onSuccess: (res)=> {
@@ -40,16 +40,15 @@ const Products = () => {
   }
 
   const handleAddToCart = (productId) => {
-    console.log(productId)
     mutate({productId})
   }
 
   return (
     <div className="products-container">
         <ul>
-          {products.map((product)=> <li key={product._id}>
+          {products.map((product)=> <Link to={`/dashboard/product-details/${product._id}`} key={product._id} className="product-list">
             <div className="image-container">
-              <img src={product.images} alt={product.title}/>
+              <img src={product.images[0]} alt={product.title}/>
             </div>
             
             <div className="desc-tith">
@@ -61,13 +60,16 @@ const Products = () => {
 
             <div className="prod-price-quanty">
               <span className="prod-price">{formattedCurrency.format(product.price)}</span>
-              <span>Stock: {product.quantity}</span>
+              <span className="prod-stock">Stock: {product.quantity}</span>
             </div>
 
             <div className="add-to-cart">
-              {user && <button onClick={()=> handleAddToCart(product._id)} >{addingProduct === product._id ? "Adding..." : "Add to Cart"}</button>}
+              {user && <button onClick={(e)=>{
+                  e.preventDefault()
+                  handleAddToCart(product._id)
+                }} >{addingProduct === product._id ? "Adding..." : "Add to Cart"}</button>}
             </div>
-          </li>)}
+          </Link>)}
         </ul>
     </div>
   )

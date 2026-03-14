@@ -7,7 +7,8 @@ import Loading from "../components/Loading";
 const AuthRedirect = () => {
   const {data:user, isLoading } = useQuery({
     queryKey: ["user"],
-    queryFn: getUser
+    queryFn: getUser,
+    retry: false
   });
 
   console.log(user)

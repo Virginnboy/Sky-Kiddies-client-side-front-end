@@ -16,7 +16,7 @@ const Signup = ()=> {
   }, [data])
 
   return (
-    <Form method="post">
+    <Form method="post" className="signup-container">
       <div className="signup-content-container">
         <h1>Signup</h1>
         <div>
@@ -24,12 +24,14 @@ const Signup = ()=> {
           label="First Name"
           name="firstName"
           id="firstname"
+          className="input"
           />
           <Input 
           label="Email" 
           type="email"
           name="email"
           id="email"
+          className="input"
           />
           <Input 
           label="Password" 
@@ -37,6 +39,7 @@ const Signup = ()=> {
           name="password"
           id="password"
           autoComplete="password"
+          className="input"
           />
 
           <Input 
@@ -45,10 +48,11 @@ const Signup = ()=> {
           name="confirmPassword"
           id="confirmPassword"
           autoComplete="password"
+          className="input"
           />
         </div>
 
-        <div style={{marginTop: "10px", display: "flex", justifyContent: "end"}}>
+        <div className="signup-button-container">
           <button>{isSubmiting? "Signing up..." : "Signup"}</button>
         </div>
 

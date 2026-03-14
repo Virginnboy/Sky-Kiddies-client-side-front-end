@@ -6,7 +6,8 @@ import Loading from "../components/Loading"
 export default function ProtectedRoutes({children}) {
   const { data: user, isLoading, isError, error } = useQuery({
     queryKey: ["user"],
-    queryFn: getUser
+    queryFn: getUser,
+    retry: false
   })
 
   if (isLoading) {

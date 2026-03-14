@@ -90,6 +90,62 @@
   font-weight: 500;
 }
 
+.payment-container {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.payment-container h2 {
+  margin-bottom: 20px;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid #eee;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.payment-option input {
+  display: none;
+}
+
+.payment-option.active {
+  border: 2px solid #00a859;
+  background: #f6fff9;
+}
+
+.payment-option.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.payment-content h4 {
+  margin: 0;
+}
+
+.payment-content p {
+  font-size: 13px;
+  color: gray;
+}
+
+.checkmark {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+.payment-option.active .checkmark {
+  border: 6px solid #00a859;
+}
+
 .payment-details-container {
   max-width: 400px;
   margin: auto;
@@ -134,11 +190,11 @@
 /* ===== Checkout Button ===== */
 .checkout-button-cover {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 10px;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
-.checkout-button-cover button {
+.checkout-btn {
   font-size: 15px;
   padding: 8px 20px;
   background-color: #343438;
@@ -147,6 +203,17 @@
   color: #fff;
   cursor: pointer;
   transition: all 0.2s ease;
+}
+
+.go-back-btn {
+  padding: 4px 15px;
+  border-radius: 15px;
+  border: 1px solid;
+}
+
+.checkout-button-cover .go-back-btn:hover {
+  background-color: white;
+  transition: 0.3s ease;
 }
 
 .checkout-button-cover button:hover {
@@ -234,5 +301,17 @@
 
   .customer-address-container {
     width: 90%;
+  }
+
+  .checkout-button-cover {
+    justify-content: space-between;
+  }
+
+  .go-back-btn {
+    background-color: white;
+  }
+
+  .checkout-button-cover {
+    margin-top: 20px;
   }
 }

@@ -67,18 +67,22 @@ const ClientNavbar = ({ search, setSearch }) => {
       <div className="navbar-list-container">
         <ul className="navbar-list">
           <li>
-            <Link id="home" to={`${user ? "/dashboard" : "/"}`}><FaHome id="fa-home"/><span>Home</span></Link>
+            <Link id="home" to={`${user ? "/dashboard" : "/"}`}><FaHome size={20} title="Home"/><span className="fa-home">Home</span></Link>
           </li>
           <li>
             <div className="account-dropdown" onClick={()=>setShowDropDown(prev=> !prev)}>
-              { user ? (<p id="user-name">{`Hi, ${user.firstName}`}</p>) : (<div id="user"><FaUserCircle id="fa-user"/><span>Profile</span></div>) }
+              { user ? (<p id="user-name">{`Hi, ${user.firstName}`}</p>) : (<div id="user"><FaUserCircle id="fa-user" title="Profile"/><span>Profile</span></div>) }
               <FaChevronDown/>
             </div>
 
             {showDropDown && (
               <div className="dropdown-menu">
                 {user ? (
-                  <button onClick={handleLogout}>Logout</button>) : (
+                  <div>
+                    <button onClick={handleLogout}>Logout</button>
+                    <Link className="order-link" to="/dashboard/orders">Orders</Link>
+                  </div>
+                ) : (
                   <div>
                     <Link to="/signup">Signup</Link>
                 <Link to="/login">Login</Link>
@@ -88,11 +92,11 @@ const ClientNavbar = ({ search, setSearch }) => {
             )}
           </li>
 
-          <Link id="help"><FaQuestionCircle id="fa-help"/><span>Help</span></Link>
+          <Link id="help"><FaQuestionCircle size={20} title="Help"/><span className="fa-help"> Help</span></Link>
 
-          <Link id="shoppingcart" to="/dashboard/cart">
-            <FaShoppingCart id="fa-shoppingcart"/>
-            <span>Cart({cartLenth})</span>
+          <Link id="shoppingcart" to="/dashboard/cart" className="cart-icon">
+            <FaShoppingCart size={20} title="Cart"/>
+            {cartLenth > 0 && <span className="cart-badge">{cartLenth}</span>}
           </Link>
         </ul>
       </div>

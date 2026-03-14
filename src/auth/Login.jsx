@@ -27,27 +27,32 @@ useEffect(() => {
 
   return (
     <Form method="post" className="login-container">
-      <h1>Login</h1>
-      <div>
-        <Input 
-          label="Email"
-          name="email"
-          id="email"
-        />
-        <Input 
-          label="Password"
-          name="password"
-          id="password"
-          type="password"
-          autoComplete="password"
-        />
-      </div>
+      <div className="mobile-container">
+        <h1>Login</h1>
+        <div>
+          <Input 
+            label="Email"
+            name="email"
+            id="email"
+            className="input"
+          />
+          
+          <Input 
+            label="Password"
+            name="password"
+            id="password"
+            type="password"
+            autoComplete="password"
+            className="input"
+          />
+        </div>
 
-      <div className="button-container">
-        <Link to="/forgot-password">Forgotten Password?</Link>
-        <button type="submit">{isSubmiting? "Loging in..." : "Login"}</button>
+        <div className="button-container">
+          <Link to="/forgot-password">Forgotten Password?</Link>
+          <button type="submit">{isSubmiting? "Loging in..." : "Login"}</button>
+        </div>
+        <p>You don't have an account yet? <Link to="/signup">Signup here</Link></p>
       </div>
-      <p>You don't have an account yet? <Link to="/signup">Signup here</Link></p>
     </Form>
   )
 }

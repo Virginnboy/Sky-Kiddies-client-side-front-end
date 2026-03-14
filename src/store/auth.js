@@ -11,9 +11,10 @@
     }
   }
 
-  export const resetPassword = async () => {
+  export const resetPassword = async ({resetToken, newPassword}) => {
+    console.log(resetToken, newPassword)
     try {
-      const response = await api.post(`user/reset-password/${resetToken}`) 
+      const response = await api.post(`user/reset-password/${resetToken}`, {newPassword}) 
 
     return response.data
     } catch (err) {

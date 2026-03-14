@@ -84,8 +84,8 @@
 
 .dropdown-menu {
   position: absolute;
-  top: 45px;
-  right: 0;
+  top: 75px;
+  right: 10;
   background: white;
   padding: 10px;
   border-radius: 8px;
@@ -93,7 +93,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  min-width: 120px;
+  /* min-width: 120px; */
   z-index: 2000;
 }
 
@@ -106,7 +106,9 @@
   padding: 5px;
   font-size: 14px;
   color: black;
+  font-size: 15px;
 }
+
 
 .dropdown-menu button:hover,
 .dropdown-menu a:hover {
@@ -120,6 +122,21 @@
 #fa-help,
 #fa-shoppingcart {
   font-size: 18px;
+}
+
+.cart-icon{
+  position: relative;
+}
+
+.cart-badge{
+  position: absolute;
+  top: -9px;
+  right: -10px;
+  background:black;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+  padding: 2px 6px;
 }
 
 /* ========================= */
@@ -191,12 +208,16 @@
 
 /* Small Phones */
 @media (max-width: 480px) {
-  .navbar-list span {
-    display: none; /* hide text, show only icons */
+  .navbar-list a {
+    font-size: 12px;
   }
 
-  .navbar-list a {
-    font-size: 18px;
+  .fa-help {
+    display: none;
+  }
+
+  .fa-home {
+    display: none;
   }
 
   .search-input {
@@ -207,4 +228,18 @@
     display: none;
   }
 
+  .dropdown-menu{
+    text-align: center;
+    align-items: center;
+    width: 70px;
+    right: 160px;
+  }
+
+  .dropdown-menu a{
+    font-size: 20px;
+  }
+
+  .dropdown-menu button{
+    font-size: 17px;
+  }
 }
