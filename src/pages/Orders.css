@@ -1,0 +1,63 @@
+.go-home {
+  display: flex;
+  justify-content: flex-end;
+  width: 90%;
+  margin: auto;
+} 
+
+.go-home-link:hover {
+  text-decoration: underline;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+.table-section h2 {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 27px;
+}
+
+.table-section table {
+  border: 1px solid;
+  width: 90%;
+  margin: auto;
+  border-collapse: collapse;
+}
+
+.table-section th{
+  border: 1px solid;
+}
+
+.table-section td {
+  border: 1px solid;
+  padding: 8px 0px 8px 2px;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.user-order-status {
+  padding: 4px 10px;
+  font-weight: 600;
+}
+
+.user-order-status.pending {
+  /* background-color: #fff3cd; */
+  color: #c89b15;
+  font-style: italic;
+}
+
+.user-order-status.confirmed {
+  /* background-color: #d4edda; */
+  color: #155724;
+}
+
+.user-order-status.rejected {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+@media (max-width: 480px) {
+  .table-section table {
+    width: 96%;
+  }
+}

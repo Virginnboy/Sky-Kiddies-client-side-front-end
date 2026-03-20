@@ -45,3 +45,13 @@
       throw err
     }
   };
+
+  export const getAdmin = async () => {
+    try {
+      const response = await api.get("user/get-admin");
+      return response.data
+    }catch(err) {
+      console.log(err)
+      throw err
+    }
+  }

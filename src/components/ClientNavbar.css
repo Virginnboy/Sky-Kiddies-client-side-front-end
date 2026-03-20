@@ -64,8 +64,8 @@
 }
 
 .navbar-list a:hover {
-  color: #3c3b3b;
-  transform: scale(0.9);
+  color: #1f1e1e;
+  transform: scale(0.95);
 }
 
 /* ===== ACCOUNT DROPDOWN ===== */
@@ -122,6 +122,27 @@
 #fa-help,
 #fa-shoppingcart {
   font-size: 18px;
+}
+
+#help{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+}
+
+#help:hover{
+  cursor: pointer;
+}
+
+.agent-container {
+  box-shadow: 0px 0px 3px -1px;
+  width: 100%;
+  position: absolute;
+  top: 30px;
+  text-align: center;
+  left: 15px;
+  background-color: white;
 }
 
 .cart-icon{

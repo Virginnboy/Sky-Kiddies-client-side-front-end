@@ -1,5 +1,5 @@
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { fetchAllProducts } from "../store/util";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useOutletContext } from "react-router-dom";
 import { Truncate } from "./Truncating";
 import { formattedCurrency } from "../store/formattedCurrency";
 import { addToCart } from "../store/util";
@@ -13,23 +13,25 @@ const Products = () => {
   const [ addingProduct, setAddingProduct ] = useState(null)
   const queryClient = useQueryClient();
   const user = JSON.parse(localStorage.getItem("user"))
-  const { data: products, isLoading } = useQuery({
-    queryKey: ["products"],
-    queryFn: fetchAllProducts
-  })
+
+  const  { products, isLoading, isQueryError, queryError} = useOutletContext();
+
 
   const { mutate } = useMutation({
     mutationFn: addToCart,
     onMutate: (variables)=> {
       setAddingProduct(variables.productId)
     },
+
     onSuccess: (res)=> {
       queryClient.invalidateQueries(['cart'])
       toast.success(res?.message)
     },
+
     onError: (err)=> {
       console.log(err)
     },
+
     onSettled: ()=> {
       setAddingProduct(null)
     }
@@ -37,6 +39,10 @@ const Products = () => {
 
     if (isLoading) {
     return <Loading/>
+  }
+
+  if (isQueryError) {
+    return toast.error(queryError?.response?.data?.message || "failed to fetch items")
   }
 
   const handleAddToCart = (productId) => {

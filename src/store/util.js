@@ -12,7 +12,7 @@ export const fetchAllProducts = async () => {
 
 export const searchProducts = async (search)=> {
   try {
-    const response = await api.get(`user/products?searc=${search}`);
+    const response = await api.get(`user/products?search=${search}`);
     return response.data
   }catch(err) {
     console.log(err)
@@ -79,6 +79,16 @@ export const placeOrder = async(formData)=> {
 
     return response.data
   }catch(err) {
+    console.log(err)
+    throw err
+  }
+}
+
+export const fetchUserOrder = async () => {
+  try {
+    const response = await api.get("user/fetch-user-order");
+    return response.data
+  }catch (err) {
     console.log(err)
     throw err
   }

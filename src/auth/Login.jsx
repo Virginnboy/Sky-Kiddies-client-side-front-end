@@ -25,6 +25,8 @@ useEffect(() => {
   }
 }, [data]);
 
+console.log(data)
+
   return (
     <Form method="post" className="login-container">
       <div className="mobile-container">
@@ -64,9 +66,11 @@ export async function action({request}) {
   try {
     const response = await api.post("user/login", {email, password})
 
-    const user = response.data.user
-
-    localStorage.setItem("user", JSON.stringify(user))
+    const userData = response.data?.user
+    const userToken = response.data?.token
+    
+    localStorage.setItem("userData", JSON.stringify(userData));
+    localStorage.setItem("userToken", userToken);
 
     return redirect("/dashboard/?login=success")
   }catch (err) {

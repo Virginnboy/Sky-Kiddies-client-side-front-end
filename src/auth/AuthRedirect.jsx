@@ -11,8 +11,6 @@ const AuthRedirect = () => {
     retry: false
   });
 
-  console.log(user)
-
   if (isLoading) {
     return <Loading/>
   }

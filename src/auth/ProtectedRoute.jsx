@@ -10,6 +10,8 @@ export default function ProtectedRoutes({children}) {
     retry: false
   })
 
+  console.log(user)
+
   if (isLoading) {
     return <Loading/>
   }
