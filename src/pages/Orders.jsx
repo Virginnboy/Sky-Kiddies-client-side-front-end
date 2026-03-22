@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query"
 import { fetchUserOrder } from "../store/util"
 import Loading from "../components/Loading";
 import { Link } from "react-router-dom";
-import { formattedCurrency } from "../../../ADMIN/src/formattedPrice";
+import { formattedCurrency } from "../store/formattedCurrency";
 import "../pages/Orders.css";
 
 const Orders = () => {
