@@ -17,10 +17,13 @@ const CartPage = () => {
   const [ showModal, setShowModal ] = useState(false)
   const [ removingItemId, setRemovingItemId ] = useState(null)
 
+  const userToken = localStorage.getItem("userToken")
+
   // FETCH CART FUNCTION
   const { data:cart, isLoading } = useQuery({
     queryKey: ['cart'],
     queryFn: fetchCart,
+    enabled: !!userToken
   });
 
 // REMOVE CART FUNCTION

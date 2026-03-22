@@ -72,6 +72,8 @@ export async function action({request}) {
     localStorage.setItem("userData", JSON.stringify(userData));
     localStorage.setItem("userToken", userToken);
 
+    api.defaults.headers.common["Authorization"] = `Bearer ${res.data.token}`;
+
     return redirect("/dashboard/?login=success")
   }catch (err) {
     console.log(err)
