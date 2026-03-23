@@ -12,7 +12,7 @@ import Loading from "./Loading";
 const Products = () => {
   const [ addingProduct, setAddingProduct ] = useState(null)
   const queryClient = useQueryClient();
-  const user = JSON.parse(localStorage.getItem("user"))
+  const user = JSON.parse(localStorage.getItem("userData"))
 
   const  { products, isLoading, isQueryError, queryError} = useOutletContext();
 
