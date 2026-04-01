@@ -1,7 +1,7 @@
 import axios from "axios"
 
 export const api = axios.create({
-  baseURL: "https://sky-kiddies-back-end.onrender.com",
+  baseURL: "http://localhost:5000",
   withCredentials: true
 });
 

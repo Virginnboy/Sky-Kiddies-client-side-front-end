@@ -93,3 +93,14 @@ export const fetchUserOrder = async () => {
     throw err
   }
 }
+
+export const fetchMessages = async (adminId) => {
+  try {
+    const response = await api.get(`user/fetch_messages/${adminId}`);
+    console.log(response);
+    return response.data;
+  }catch (err) {
+    console.log(err)
+    throw err
+  }
+}
