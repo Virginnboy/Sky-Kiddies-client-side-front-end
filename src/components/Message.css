@@ -56,6 +56,13 @@
   border-bottom-left-radius: 0;
 }
 
+.msg-status {
+  display: flex;
+  justify-content: end;
+  font-size: 10px;
+  font-style: italic;
+}
+
 /* Input area */
 .chat-input {
   display: flex;

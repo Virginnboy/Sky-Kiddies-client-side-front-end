@@ -1,3 +1,4 @@
+
 .go-home {
   display: flex;
   justify-content: flex-end;
@@ -59,5 +60,14 @@
 @media (max-width: 480px) {
   .table-section table {
     width: 96%;
+  }
+
+  .go-home{
+    margin-top: 20px;
+  }
+
+  .user-order-container {
+    border-top: 3px solid;
+    margin-top: 80px;
   }
 }

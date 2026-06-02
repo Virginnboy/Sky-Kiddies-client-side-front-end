@@ -125,7 +125,7 @@ const ClientNavbar = ({ search, setSearch }) => {
           >
             <FaQuestionCircle size={20} title="Help"/><span className="fa-help"> Help</span>
             {showHelp && (<div className="agent-container">
-              <Link to="/dashboard/help">Live Chat</Link>
+              <Link to="/dashboard/help" id="live-chat">Live Chat</Link>
             </div>)}
           </div>
 

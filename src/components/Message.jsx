@@ -10,15 +10,7 @@ export default function Message() {
   const [text, setText] = useState("");
   const [messages, setMessages] = useState([]);
   const messagesEndRef = useRef(null); // for auto-scroll
-
-  // SOCKET: Receive messages
-  useEffect(() => {
-    socket.on("receive_message", (message) => {
-      setMessages((prev) => [...prev, message]);
-    });
-    return () => socket.off("receive_message");
-  }, []);
-
+  
   // ADMIN DATA QUERY
   const { data: adminData, isLoading, isError, error } = useQuery({
     queryKey: ["adminId"],
@@ -26,6 +18,41 @@ export default function Message() {
   });
 
   const adminId = adminData?._id;
+
+  // SOCKET: Receive Message
+  useEffect(() => {
+    socket.on("receive_message", (message) => {
+      setMessages((prev) => [...prev, message]);
+    });
+    return () => socket.off("receive_message");
+  }, []);
+
+  // SOCKET: Delivered Message
+  useEffect(()=> {
+    const handleUpdateDeliveredStatus = (updatedDeliveredMessage) => {
+      console.log(updatedDeliveredMessage)
+      setMessages(prevMessages => 
+        prevMessages.map(msg => msg._id === updatedDeliveredMessage._id ? updatedDeliveredMessage : msg)
+      )
+    }
+    socket.on("message_status_update", handleUpdateDeliveredStatus);
+
+    return ()=> {
+      socket.off("message_status_update", handleUpdateDeliveredStatus);
+    }
+  }, []);
+
+  // SOCKET: Read message
+  useEffect(()=> {
+    socket.emit("join_chat", {otherUserId: adminId});
+
+    socket.emit("mark_as_read", {senderId: adminId});
+
+    return ()=> {
+      socket.emit("leave_chat", {otherUserId: adminId});
+    }
+  }, [adminId])
+
 
   // FETCH MESSAGES
   const { data: messageData } = useQuery({
@@ -79,6 +106,9 @@ export default function Message() {
             }`}
           >
             <p>{msg.message}</p>
+            {msg.receiverModel === "Admin" && msg.status === "sent" && <p className="msg-status">sent</p>}
+            {msg.receiverModel === "Admin" && msg.status === "delivered" && <p className="msg-status">delivered</p>}
+            {msg.receiverModel === "Admin" && msg.status === "read" && <p className="msg-status">read</p>}
           </div>
         ))}
         <div ref={messagesEndRef} />

@@ -1,21 +1,29 @@
-/* ===== NAVBAR MAIN ===== */
+/* ===== GLOBAL FIX ===== */
+* {
+  box-sizing: border-box;
+}
+
+/* ===== NAVBAR ===== */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+
   height: 100px;
   background-color: wheat;
+
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
+  gap: 20px;
+
+  padding: 0 20px;
   z-index: 1000;
 }
 
 /* ===== LOGO ===== */
 .sky-navbar {
-  width: 60%;
+  flex: 1;
 }
 
 #sky-kiddies {
@@ -25,32 +33,31 @@
 
 /* ===== SEARCH BAR ===== */
 .search-bar {
-  width: 60%;
+  flex: 2;
 }
 
 .search-input {
-  flex: 1;
+  width: 100%;
   height: 38px;
   padding: 0 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
-  width: 95%;
 }
 
 /* ===== NAV LINKS ===== */
 .navbar-list-container {
-  width: 70%;
-}
-.navbar-list {
   flex: 2;
+}
+
+.navbar-list {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 40px;
+  gap: 20px;
+
   list-style: none;
-  margin-right: 10px;
-  padding: 0px;
-  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar-list a {
@@ -64,7 +71,6 @@
 }
 
 .navbar-list a:hover {
-  color: #1f1e1e;
   transform: scale(0.95);
 }
 
@@ -77,23 +83,20 @@
   position: relative;
 }
 
-.account-dropdown:hover {
-  color: #3c3b3b;
-  transform: scale(0.9);
-}
-
 .dropdown-menu {
   position: absolute;
-  top: 75px;
-  right: 10;
+  top: 60px;
+  right: 120px;
+
   background: white;
   padding: 10px;
   border-radius: 8px;
+
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
   display: flex;
   flex-direction: column;
   gap: 8px;
-  /* min-width: 120px; */
   z-index: 2000;
 }
 
@@ -106,99 +109,65 @@
   padding: 5px;
   font-size: 14px;
   color: black;
-  font-size: 15px;
 }
-
 
 .dropdown-menu button:hover,
 .dropdown-menu a:hover {
   background: #f2f2f2;
-  border-radius: 4px;
 }
 
-/* ===== ICON SIZES ===== */
-#fa-home,
-#fa-user,
-#fa-help,
-#fa-shoppingcart {
-  font-size: 18px;
-}
-
-#help{
+/* ===== HELP ===== */
+#help {
   display: flex;
   align-items: center;
   gap: 5px;
   position: relative;
-}
-
-#help:hover{
   cursor: pointer;
 }
 
 .agent-container {
-  box-shadow: 0px 0px 3px -1px;
-  width: 100%;
   position: absolute;
   top: 30px;
-  text-align: center;
-  left: 15px;
-  background-color: white;
+  left: 10px;
+  right: 10px;
+  width: 80px;
+  height: 40px;
+  background: white;
+  box-shadow: 0px 0px 3px -1px;
+  border-radius: 4px;
 }
 
-.cart-icon{
+#live-chat{
+  margin-top: 10px;
+  margin-left: 8px;
+  
+}
+
+/* ===== CART ===== */
+.cart-icon {
   position: relative;
 }
 
-.cart-badge{
+.cart-badge {
   position: absolute;
-  top: -9px;
-  right: -10px;
-  background:black;
+  top: -8px;
+  right: -8px;
+
+  background: black;
   color: white;
   font-size: 12px;
+
   border-radius: 50%;
   padding: 2px 6px;
 }
 
 /* ========================= */
-/* ===== RESPONSIVE ======== */
+/* ===== TABLET ===== */
 /* ========================= */
-
-/* Tablet */
-@media (max-width: 900px) {
+@media (max-width: 1030px) {
   .navbar {
-    padding: 0 20px;
-  }
-
-  .sky-navbar {
-    width: 35%;
-  }
-
-  .navbar-list-container {
-    width: 45%;
-  }
-
-  .navbar-list {
-    gap: 15px;
-    justify-content: space-between;
-    width: 90%;
-    /* margin: auto; */
-    margin: auto;
-    padding: 10px 0px;
-  }
-
-  .search-bar {
-    flex: 1.5;
-  }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .navbar {
-    flex-wrap: wrap;
     height: auto;
-    padding: 10px 20px;
-    gap: 10px;
+    flex-wrap: wrap;
   }
 
   .sky-navbar {
@@ -208,59 +177,45 @@
 
   .search-bar {
     flex: 100%;
-    order: 3;
   }
 
   .navbar-list-container {
-    width: 100%;
+    flex: 100%;
   }
 
   .navbar-list {
-    flex: 100%;
     justify-content: space-around;
-    order: 2;
-  }
-
-  #sky-kiddies {
-    font-size: 22px;
-    display: none;
   }
 }
 
-/* Small Phones */
-@media (max-width: 480px) {
+/* ========================= */
+/* ===== MOBILE ===== */
+/* ========================= */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .dropdown-menu {
+    top:100px;
+    left: 180px;
+    right: 170px;
+  }
+
+  #sky-kiddies {
+    display: none;
+  }
+
+  .navbar-list {
+    gap: 10px;
+  }
+
   .navbar-list a {
     font-size: 12px;
   }
 
-  .fa-help {
-    display: none;
-  }
-
-  .fa-home {
-    display: none;
-  }
-
   .search-input {
     height: 34px;
-  }
-
-  #sky-kiddies{
-    display: none;
-  }
-
-  .dropdown-menu{
-    text-align: center;
-    align-items: center;
-    width: 70px;
-    right: 160px;
-  }
-
-  .dropdown-menu a{
-    font-size: 20px;
-  }
-
-  .dropdown-menu button{
-    font-size: 17px;
   }
 }
