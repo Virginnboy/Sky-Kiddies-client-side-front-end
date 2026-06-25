@@ -1,7 +1,7 @@
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 
-const token = localStorage.getItem("userToken")
+// const token = localStorage.getItem("userToken")
 
-export const socket = io("https://sky-kiddies-back-end.onrender.com", {
-  auth: {token}
-}); 
+// export const socket = io("https://sky-kiddies-back-end.onrender.com", {
+//   auth: {token}
+// }); 

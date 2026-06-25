@@ -15,7 +15,7 @@ import Checkout from "./pages/Checkout";
 import AuthRedirect from "./auth/AuthRedirect";
 import ProductDetails, {loader as productDetailsLoader } from "./components/ProductDetails";
 import Orders from "./pages/Orders";
-import Message from "./components/Message";
+// import Message from "./components/Message";
 
 function App() {
   const queryClient = new QueryClient();
@@ -39,7 +39,7 @@ function App() {
         {path: "cart", element: <CartPage/>},
         {path: "checkout", element: <Checkout/> },
         {path: "orders", element: <Orders/>},
-        {path: "help", element: <Message/>}
+        // {path: "help", element: <Message/>}
       ]},
     ]}
   ]);
