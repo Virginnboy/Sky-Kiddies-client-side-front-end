@@ -24,6 +24,7 @@ export const searchProducts = async (search)=> {
   export const addToCart = async({productId}) => {
     try{
       const response = await api.post("cart/add", {productId});
+      console.log(response);
       return response.data
     }catch (err) {
       console.log(err)

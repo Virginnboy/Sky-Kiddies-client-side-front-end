@@ -39,7 +39,7 @@ function App() {
         {path: "cart", element: <CartPage/>},
         {path: "checkout", element: <Checkout/> },
         {path: "orders", element: <Orders/>},
-        // {path: "help", element: <Message/>}
+        {path: "help", element: <Message/>}
       ]},
     ]}
   ]);

@@ -26,6 +26,8 @@ const CartPage = () => {
     enabled: !!userToken
   });
 
+  console.log(cart)
+
 // REMOVE CART FUNCTION
   const { mutate } = useMutation({
     mutationFn: removeItem,

@@ -30,7 +30,6 @@ export default function Message() {
   // SOCKET: Delivered Message
   useEffect(()=> {
     const handleUpdateDeliveredStatus = (updatedDeliveredMessage) => {
-      console.log(updatedDeliveredMessage)
       setMessages(prevMessages => 
         prevMessages.map(msg => msg._id === updatedDeliveredMessage._id ? updatedDeliveredMessage : msg)
       )

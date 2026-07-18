@@ -65,6 +65,7 @@ export async function action({request}) {
   const password = data.get("password")
   try {
     const response = await api.post("user/login", {email, password})
+    console.log(response)
 
     const userData = response.data?.user
     const userToken = response.data?.token

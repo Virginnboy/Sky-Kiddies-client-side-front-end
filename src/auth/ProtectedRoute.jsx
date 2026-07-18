@@ -8,9 +8,7 @@ export default function ProtectedRoutes({children}) {
     queryKey: ["user"],
     queryFn: getUser,
     retry: false
-  })
-
-  // console.log(user)
+  });
 
   if (isLoading) {
     return <Loading/>

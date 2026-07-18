@@ -26,7 +26,6 @@
   export const getUser = async () => {
     try {
       const response = await api.get("/user/me");
-      
       return response.data
       
     }catch (err) {
