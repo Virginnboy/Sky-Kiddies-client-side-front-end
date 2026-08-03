@@ -1,16 +1,135 @@
-# React + Vite
+# Sky-Kiddies Client Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+The Sky Kiddies Client Frontend is the customer-facing web application for the Sky Kiddies e-commerce platform.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+It allows users to browse products, create accounts, manage their shopping cart, place orders, reset their passwords, and communicate with administrators through a modern and responsive user interface.
 
-## React Compiler
+This project was built using React and modern frontend technologies to provide a fast, interactive, and user-friendly shopping experience.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- User Registration and Login
+- Secure Authentication
+- Browse Products
+- View Product Details
+- Shopping Cart
+- Place Orders
+- Password Reset
+- Real-time Chat with Admin
+- Responsive Design
+- Protected User Routes
+
+---
+
+## Tech Stack
+
+- React
+- Vite
+- React Router
+- React Query
+- Axios
+
+### Styling
+
+- CSS
+
+### State Management
+
+- React Query
+
+### Authentication
+
+- JWT Authentication
+- Cookies
+
+### Real-Time Communication
+
+- Socket.IO Client
+
+---
+
+## Project Structure
+
+```
+public/
+src/
+api/
+auth/
+components/
+pages/
+store/
+assets/
+App.jsx
+main.jsx
+socket.io.js
+```
+---
+
+## Environment Variables
+
+Create a `.env` file and add the following variables:
+
+```env
+.env.development/
+VITE_API_URL=
+.env.production/
+VITE_API_URL=
+```
+---
+
+## Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/Virginnboy/Sky-Kiddies-client-side-front-end.git
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Start the development server
+
+```bash
+npm run dev
+```
+---
+## Main Pages
+
+- Home
+- Login
+- Signup
+- Product
+- Product Details
+- Shopping Cart
+- Cart Summary
+- Checkout
+- Orders
+- User Profile
+- Chat
+- Error Page
+- Payment Via Bank transfer
+
+---
+## Future Improvements
+
+- Product Reviews
+- Wishlist
+- Product Search Filters
+- Payment Integration Via Card (Flutter)
+- Push Notifications
+
+---
+## Author
+
+**Adebayo Olajide**
+
+GitHub:
+https://github.com/Virginnboy
