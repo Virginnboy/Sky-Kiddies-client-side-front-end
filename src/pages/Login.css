@@ -35,12 +35,12 @@
   width: 30%;
   border-radius: 10px;
   border: none;
-  background-color: blue;
+  background-color: rgb(69, 68, 68);
   color: whitesmoke;
 }
 
 .button-container button:hover{
-  background-color: rgb(7, 7, 221);
+  background-color: rgb(13, 12, 12);
   color: white;
 }
 
@@ -60,6 +60,10 @@
 
   .mobile-container a {
     font-size: 18px;
+  }
+
+  .button-container button {
+    background-color: black;
   }
 
   .input {

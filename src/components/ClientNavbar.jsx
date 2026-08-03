@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { fetchCart } from "../store/util";
 import { useState, useEffect, useRef } from "react"
-import { logOut } from "../store/auth";
+import { logOut } from "../auth/auth";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 

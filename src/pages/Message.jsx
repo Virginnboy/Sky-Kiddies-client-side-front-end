@@ -1,10 +1,10 @@
 import { socket } from "../../socket.io";
 import { useState, useEffect, useRef } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { getAdmin } from "../store/auth";
+import { getAdmin } from "../auth/auth";
 import Loading from "../components/Loading";
 import { fetchMessages } from "../store/util";
-import "../components/Message.css";
+import "../pages/Message.css";
 
 export default function Message() {
   const [text, setText] = useState("");

@@ -1,4 +1,4 @@
-import "../components/ProductDetails.css"
+import "../pages/ProductDetails.css"
 import { api } from "../api/axios"
 import { useLoaderData } from "react-router-dom"
 import { formattedCurrency } from "../store/formattedCurrency"

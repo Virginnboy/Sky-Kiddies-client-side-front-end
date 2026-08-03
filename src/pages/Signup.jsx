@@ -3,7 +3,7 @@ import { Link, Form, redirect, useActionData, useNavigation } from "react-router
 import { api } from "../api/axios";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
-import "../auth/Signup.css"
+import "../pages/Signup.css"
 
 const Signup = ()=> {
   const data = useActionData();

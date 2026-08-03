@@ -1,10 +1,11 @@
 import { useMutation } from "@tanstack/react-query";
 import Input from "../components/Input";
 import toast from "react-hot-toast";
-import { resetPassword } from "../store/auth";
+import { resetPassword } from "../auth/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import "../pages/ResetPassword.css";
 
 const ResetPassword = () => {
   const navigate = useNavigate();
@@ -33,30 +34,54 @@ const ResetPassword = () => {
 
     
     if (newPassword !== confirmPassword) {
-      setConfirmedPassword("Password do not match")
+      setConfirmedPassword("Password do not match");
+      return;
     }
-    mutate({resetToken, newPassword})
+    setConfirmedPassword("");
+    mutate({resetToken, newPassword});
   }
 
   return (
-    <form method="POST" onSubmit={handleResetPassword}>
-      <h1>Reset Password</h1>
-        {confirmedPassword}
-      <div>
-        <Input 
-          label="New Password"
-          name="newPassword"
-        />
-        <Input 
-          label="Confirm Password"
-          name="confirmPassword"
-        />
-      </div>
+<form
+  method="POST"
+  className="reset-password-container"
+  onSubmit={handleResetPassword}
+>
+  <div className="reset-password-card">
+    <h1>Reset Password</h1>
 
-      <p>
-        <button type="submit">{isPending? "Reseting Password..." : "Change Password"}</button>
+    <p className="reset-password-description">
+      Create a new password for your account. Choose one that's secure and easy
+      for you to remember.
+    </p>
+
+    {confirmedPassword && (
+      <p className="reset-password-error">
+        {confirmedPassword}
       </p>
-    </form>
+    )}
+
+    <Input
+      label="New Password"
+      name="newPassword"
+      type="password"
+      autoComplete="new-password"
+    />
+
+    <Input
+      label="Confirm Password"
+      name="confirmPassword"
+      type="password"
+      autoComplete="new-password"
+    />
+
+    <div className="reset-password-btn">
+      <button type="submit" disabled={isPending}>
+        {isPending ? "Resetting Password..." : "Change Password"}
+      </button>
+    </div>
+  </div>
+</form>
   )
 }
 

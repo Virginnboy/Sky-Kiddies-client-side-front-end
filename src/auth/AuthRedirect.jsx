@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
-import { getUser } from "../store/auth"
+import { getUser } from "./auth"
 import { Navigate } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import Loading from "../components/Loading";

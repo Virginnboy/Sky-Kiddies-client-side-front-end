@@ -1,7 +1,11 @@
 export function Truncate({text, length, className = ""}) {
     if (text.length > length) 
-      return <span className={className}>{text.slice(0, length)}  {"...."}</span>
+      return <div className={className}>
+        <span >{text.slice(0, length)}  {"...."}</span>
+      </div>
   return (
-    <span className={className}>{text}</span>
+    <div className={className}>
+      <span >{text}</span>
+    </div>
   )
 };

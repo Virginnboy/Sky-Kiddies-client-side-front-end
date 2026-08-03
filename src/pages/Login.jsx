@@ -3,7 +3,7 @@ import { Link, Form, redirect, useActionData, useSearchParams, useNavigation } f
 import toast from "react-hot-toast";
 import { useEffect } from "react";
 import { api } from "../api/axios";
-import "../auth/Login.css"
+import "../pages/Login.css"
 
 export default function Login() {
   const [ searchParams ] = useSearchParams();

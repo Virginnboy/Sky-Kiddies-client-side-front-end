@@ -1,7 +1,7 @@
 import Input from "../components/Input"
-import "../auth/ForgotPassword.css"
+import "../pages/ForgotPassword.css"
 import { useMutation } from "@tanstack/react-query"
-import { forgotPassword } from "../store/auth"
+import { forgotPassword } from "../auth/auth"
 import toast from "react-hot-toast"
 
 export default function ForgotPassword() {

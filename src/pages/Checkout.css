@@ -194,6 +194,17 @@
   margin-top: 20px;
 }
 
+.pending-checkout {
+  font-size: 15px;
+  padding: 8px 20px;
+  background-color: #ee5b78;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
 .checkout-btn {
   font-size: 15px;
   padding: 8px 20px;

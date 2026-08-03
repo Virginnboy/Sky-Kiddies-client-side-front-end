@@ -40,8 +40,13 @@ export default function CustomerAddress({isPending}) {
           accept="image/*"
         />
         <p className="checkout-button-cover">
-          <button className="go-back-btn" onClick={()=>navigate(-1)} type="button">Go Back</button>
-          <button className="checkout-btn" type="submit">{isPending? "Placing Order..." : "Place Order"}</button>
+          <button className="go-back-btn" onClick={()=>navigate(-1)} type="button">
+            Go Back
+          </button>
+
+          <button className={isPending ? "pending-checkout" : "checkout-btn"} type="submit" disabled={isPending}>
+            {isPending? "Placing Order..." : "Place Order"}
+          </button>
         </p>
       </div>
     </div>

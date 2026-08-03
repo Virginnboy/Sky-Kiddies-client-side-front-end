@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom"
 import { useQuery } from "@tanstack/react-query"
-import { getUser } from "../store/auth"
+import { getUser } from "./auth"
 import Loading from "../components/Loading"
 
 export default function ProtectedRoutes({children}) {

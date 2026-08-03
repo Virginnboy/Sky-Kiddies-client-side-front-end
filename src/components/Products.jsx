@@ -16,7 +16,6 @@ const Products = () => {
 
   const  { products, isLoading, isQueryError, queryError} = useOutletContext();
 
-
   const { mutate } = useMutation({
     mutationFn: addToCart,
     onMutate: (variables)=> {
