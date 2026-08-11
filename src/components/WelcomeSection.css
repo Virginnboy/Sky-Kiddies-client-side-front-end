@@ -1,0 +1,117 @@
+.dashboard-home {
+  padding: 30px;
+}
+
+/* WELCOME */
+
+.dashboard-welcome {
+  background: linear-gradient(135deg, #ffe8b6, #fff5df);
+  border-radius: 18px;
+  padding: 35px;
+  margin-bottom: 25px;
+}
+
+.welcome-small {
+  margin: 0;
+  font-size: 15px;
+}
+
+.dashboard-welcome h1 {
+  margin: 8px 0;
+  font-size: 32px;
+}
+
+.dashboard-welcome p {
+  margin: 0;
+}
+
+
+/* QUICK ACTIONS */
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.dashboard-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  padding: 20px;
+
+  background: white;
+  color: black;
+
+  text-decoration: none;
+
+  border-radius: 12px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  transition: 0.2s;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-3px);
+  color: black;
+}
+
+.dashboard-icon {
+  font-size: 25px;
+}
+
+.dashboard-card h3 {
+  margin: 0 0 5px;
+}
+
+.dashboard-card p {
+  margin: 0;
+  font-size: 14px;
+}
+
+
+/* PRODUCTS */
+
+.dashboard-products {
+  margin-top: 20px;
+}
+
+.dashboard-section-header {
+  margin-bottom: 15px;
+}
+
+.dashboard-section-header h2 {
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.dashboard-section-header p {
+  margin: 0;
+  text-align: center;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  .dashboard-home {
+    padding: 15px;
+  }
+
+  .dashboard-welcome {
+    padding: 25px;
+  }
+
+  .dashboard-welcome h1 {
+    font-size: 26px;
+  }
+
+  .quick-actions {
+    grid-template-columns: 1fr;
+  }
+
+}

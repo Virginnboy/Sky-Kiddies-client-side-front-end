@@ -16,6 +16,7 @@ import AuthRedirect from "./auth/AuthRedirect";
 import ProductDetails, {loader as productDetailsLoader } from "./pages/ProductDetails";
 import Orders from "./pages/Orders";
 import Message from "./pages/Message";
+import DashboardHomePage from "./pages/DashboardHomePage";
 
 function App() {
   const queryClient = new QueryClient();
@@ -34,7 +35,7 @@ function App() {
       {path: "dashboard", element: <ProtectedRoutes>
         <DashboardLayout/>
       </ProtectedRoutes>, children: [
-        {index: true, element: <Products/>},
+        {index: true, element: <DashboardHomePage/>},
         {path: "product-details/:productId", element: <ProductDetails/>, loader: productDetailsLoader},
         {path: "cart", element: <CartPage/>},
         {path: "checkout", element: <Checkout/> },

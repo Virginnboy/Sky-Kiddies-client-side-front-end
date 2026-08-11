@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query"
 import { getUser } from "./auth"
 import { Navigate } from "react-router-dom";
-import HomePage from "../pages/HomePage";
 import Loading from "../components/Loading";
+import LandingPage from "../pages/LandingPage";
 
 const AuthRedirect = () => {
   const {data:user, isLoading } = useQuery({
@@ -21,7 +21,7 @@ const AuthRedirect = () => {
     return <Navigate to="/dashboard" replace/>
   }
 
-  return <HomePage/>
+  return <LandingPage/>
 }
 
 export default AuthRedirect

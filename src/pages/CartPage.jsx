@@ -17,7 +17,7 @@ const CartPage = () => {
   const [ showModal, setShowModal ] = useState(false)
   const [ removingItemId, setRemovingItemId ] = useState(null)
 
-  const userToken = localStorage.getItem("userToken")
+  const userToken = localStorage.getItem("userToken");
 
   // FETCH CART FUNCTION
   const { data:cart, isLoading } = useQuery({
@@ -36,7 +36,7 @@ const CartPage = () => {
       toast.success(res?.message)
     },
     onError: (err)=> {
-      console.log(err.response?.data?.message)
+      console.log(err.response?.data?.message);
     }
   })
 
@@ -47,7 +47,7 @@ const CartPage = () => {
       queryClient.invalidateQueries(['cart'])
       console.log(res?.message)
     }
-  })
+  });
 
 
   if (isLoading) {

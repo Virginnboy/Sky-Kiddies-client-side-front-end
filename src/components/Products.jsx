@@ -6,7 +6,7 @@ import { addToCart } from "../store/util";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
-import "../components/Product.css";
+import "../components/ProductGrid.css";
 import Loading from "./Loading";
 
 const Products = () => {

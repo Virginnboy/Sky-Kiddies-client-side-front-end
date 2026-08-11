@@ -47,10 +47,10 @@ const Orders = () => {
               order.items?.map((item)=> (
                 <tr key={item._id}>
                   <td><b>{order.orderNumber}</b></td>
-                  <td>{item.product.title}</td>
+                  {/* <td>{item.product.title}</td> */}
                   <td>{item.quantity}</td>
-                  <td>{formattedCurrency.format(item.product.price)}</td>
-                  <td>{formattedCurrency.format(item.quantity * item.product.price)}</td>
+                  {/* <td>{formattedCurrency.format(item.product.price)}</td> */}
+                  {/* <td>{formattedCurrency.format(item.quantity * item.product.price)}</td> */}
                   <td className={`user-order-status ${order.status.toLowerCase()}`}>{order.status}</td>
                 </tr>
               ))

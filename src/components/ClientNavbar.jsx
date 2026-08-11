@@ -84,7 +84,7 @@ const ClientNavbar = ({ search, setSearch }) => {
       <div className="navbar-list-container">
         <ul className="navbar-list">
           <li>
-            <Link id="home" to={`${user ? "/dashboard" : "/"}`}><FaHome size={20} title="Home"/><span className="fa-home">Home</span></Link>
+            <Link to={`${user ? "/dashboard" : "/"}`}><FaHome size={20} title="Home"/><span className="fa-home">Home</span></Link>
           </li>
           <li>
             <div className="account-dropdown" onClick={(e)=>{
