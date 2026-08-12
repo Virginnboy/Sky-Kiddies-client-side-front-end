@@ -67,12 +67,9 @@ export async function action({request}) {
     const response = await api.post("user/login", {email, password})
     console.log(response)
 
-    const userData = response.data?.user
-    const userToken = response.data?.token
+    const userData = response.data?.user;
     
     localStorage.setItem("userData", JSON.stringify(userData));
-    localStorage.setItem("userToken", userToken);
-    // api.defaults.headers.common["Authorization"] = `Bearer ${response.data.token}`;
 
     return redirect("/dashboard/?login=success")
   }catch (err) {

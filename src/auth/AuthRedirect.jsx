@@ -14,7 +14,7 @@ const AuthRedirect = () => {
   console.log(user);
 
   if (isLoading) {
-    return <Loading/>
+    return <LandingPage/>
   }
 
   if (user) {
