@@ -1,9 +1,10 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
-import { fetchCart, placeOrder } from "../store/util"
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { fetchCart } from "../services/cart.service";
+import { placeOrder } from "../services/order.service";
 import Loading from "../components/Loading";
 import "../pages/Checkout.css";
 import CartSummary from "./CartSummary";
-import { formattedCurrency } from "../store/formattedCurrency";
+import { formattedCurrency } from "../util/formattedCurrency";
 import CustomerAddress from "./CustomerAddress";
 import { PaymentDetails } from "./PaymentDetails";
 import { useState } from "react";

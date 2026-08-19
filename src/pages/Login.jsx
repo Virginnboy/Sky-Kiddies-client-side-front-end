@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import { api } from "../api/axios";
 import "../pages/Login.css"
 
+import { socket } from "../../socket.io";
+
 export default function Login() {
   const [ searchParams ] = useSearchParams();
   const data = useActionData();
@@ -70,6 +72,7 @@ export async function action({request}) {
     const userData = response.data?.user;
     
     localStorage.setItem("userData", JSON.stringify(userData));
+    socket.connect();
 
     return redirect("/dashboard/?login=success")
   }catch (err) {

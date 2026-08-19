@@ -27,7 +27,7 @@ function App() {
       errorElement: <ErrorPage/>,
       children: [
       {index: true, element: <AuthRedirect/>},
-      {path: "/product-details/:productId", element: <ProductDetails/>, loader:productDetailsLoader},
+      {path: "/product-details/:productId", element: <ProductDetails/>, loader:productDetailsLoader, errorElement: <ErrorPage/>},
       {path: "signup", element: <Signup/>, action: signupAction},
       {path: "login", element: <Login/>, action: loginAction},
       {path: "forgot-password", element: <ForgotPassword/>},

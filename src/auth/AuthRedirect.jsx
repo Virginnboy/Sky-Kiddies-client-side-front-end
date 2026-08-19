@@ -18,6 +18,7 @@ const AuthRedirect = () => {
   }
 
   if (user) {
+    
     return <Navigate to="/dashboard" replace/>
   }
 

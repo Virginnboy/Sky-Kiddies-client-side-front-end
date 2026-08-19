@@ -1,5 +1,5 @@
-import { useQuery } from "@tanstack/react-query"
-import { fetchBankDetails } from "../store/util"
+import { useQuery } from "@tanstack/react-query";
+import { fetchBankDetails } from "../services/bankAccount.service";
 import Loading from "../components/Loading";
 
 export const PaymentDetails = () => {

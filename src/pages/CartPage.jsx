@@ -1,7 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { fetchCart, removeItem, updateItemQuantity } from "../store/util";
+import { fetchCart, removeItem, updateItemQuantity } from "../services/cart.service";
 import "../pages/CartPage.css"
-import { formattedCurrency } from "../store/formattedCurrency";
+import { formattedCurrency } from "../util/formattedCurrency";
 import { useNavigate } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 import Loading from "../components/Loading";
@@ -25,8 +25,6 @@ const CartPage = () => {
     queryFn: fetchCart,
     enabled: !!userToken
   });
-
-  console.log(cart)
 
 // REMOVE CART FUNCTION
   const { mutate } = useMutation({

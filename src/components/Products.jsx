@@ -1,8 +1,8 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useOutletContext } from "react-router-dom";
 import { Truncate } from "./Truncating";
-import { formattedCurrency } from "../store/formattedCurrency";
-import { addToCart } from "../store/util";
+import { formattedCurrency } from "../util/formattedCurrency";
+import { addToCart } from "../services/cart.service";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";

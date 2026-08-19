@@ -1,12 +1,36 @@
-const ErrorPage = () => {
-  return (
-    <div style={{height: "99vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center"}}>
-      <h1>Error 404</h1>
+import { useRouteError } from "react-router-dom";
+import ErrorContent from "../components/ErrorContent";
+import { Children } from "react";
 
-      <p>Page not found</p>
-      <small>Invalid Url</small>
-    </div>
-  )
+const ErrorPage = () => {
+  const error = useRouteError();
+
+  let title = "An Error Occured!";
+  let message = "Something went wrong";
+
+  if (error?.status === 400) {
+    title = "Bad Request";
+    message = error?.response?.data?.message  || "Bad Request";
+  }
+
+  if (error?.status === 401) {
+    title = "Authentication error";
+    message = error?.response?.data?.message  || "Unauthorized";
+  }
+  
+  if (error?.status === 404) {
+    title = "Not found!"
+    message =error?.response?.data?.message || "Could not found resource or page"
+  }
+
+  if (error?.status === 500) {
+    title = "Server Error"
+    message= error?.response?.data?.message || "Internal Server Error";
+  }
+  
+  return <ErrorContent title={title}>
+    <p>{Children}</p>
+  </ErrorContent>
 }
 
-export default ErrorPage
+export default ErrorPage;

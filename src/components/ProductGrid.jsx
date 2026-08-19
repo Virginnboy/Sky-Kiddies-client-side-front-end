@@ -1,8 +1,8 @@
 import { useOutletContext } from "react-router-dom";
 import { useMutation } from "@tanstack/react-query";
-import { addToCart } from "../store/util"
+import { addToCart } from "../services/cart.service";
 import { Truncate } from "../components/Truncating";
-import { formattedCurrency } from "../store/formattedCurrency";
+import { formattedCurrency } from "../util/formattedCurrency";
 import { useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
 import { Link } from "react-router-dom";

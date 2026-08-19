@@ -1,4 +1,4 @@
-import { formattedCurrency } from "../store/formattedCurrency"
+import { formattedCurrency } from "../util/formattedCurrency";
 
 const CartSummary = ({cartSummary}) => {
   return (

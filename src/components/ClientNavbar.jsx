@@ -2,7 +2,7 @@ import { FaShoppingCart, FaQuestionCircle, FaUserCircle, FaChevronDown, FaHome} 
 import "../components/ClientNavbar.css"
 import { Link } from "react-router-dom";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { fetchCart } from "../store/util";
+import { fetchCart } from "../services/cart.service";
 import { useState, useEffect, useRef } from "react"
 import { logOut } from "../auth/auth";
 import { useNavigate } from "react-router-dom";

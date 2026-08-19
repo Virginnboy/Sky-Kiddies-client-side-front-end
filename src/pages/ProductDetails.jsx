@@ -1,11 +1,11 @@
-import "../pages/ProductDetails.css"
-import { api } from "../api/axios"
-import { useLoaderData } from "react-router-dom"
-import { formattedCurrency } from "../store/formattedCurrency"
+import "../pages/ProductDetails.css";
+import { api } from "../api/axios";
+import { useLoaderData } from "react-router-dom";
+import { formattedCurrency } from "../util/formattedCurrency";
 import { useNavigate } from "react-router-dom"
-import { useMutation, useQueryClient } from "@tanstack/react-query"
-import { addToCart } from "../store/util"
-import toast from "react-hot-toast"
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { addToCart } from "../services/cart.service";
+import toast from "react-hot-toast";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
@@ -80,10 +80,10 @@ export const loader = async ({params}) => {
   const productId = params.productId
 
   try {
-    const response = await api.get(`user/product-details/${productId}`);
+    const response = await api.get(`user/product/product-details/${productId}`);
     return response.data
   }catch(err) {
     console.log(err)
-    throw new Error(err)
+    throw err
   }
 }

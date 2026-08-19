@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import ClientNavbar from "./ClientNavbar";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { searchProducts, fetchAllProducts } from "../store/util";
+import { searchProducts, fetchAllProducts } from "../services/product.service";
 import "../components/ClientRootLayout.css"
 
 export default function ClientRootLayout() {

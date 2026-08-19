@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query"
-import { fetchUserOrder } from "../store/util"
+import { fetchUserOrder } from "../services/order.service"
 import Loading from "../components/Loading";
 import { Link } from "react-router-dom";
-import { formattedCurrency } from "../store/formattedCurrency";
+import { formattedCurrency } from "../util/formattedCurrency";
 import "../pages/Orders.css";
 
 const Orders = () => {
